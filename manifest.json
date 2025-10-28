@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "ISTQB Exam Downloader",
+  "description": "Tải đề thi ISTQB trên m.istqbonline.vn thành file PDF.",
+  "version": "1.0",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://m.istqbonline.vn/*"],
+      "js": ["content-loader.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["html2canvas.min.js", "jspdf.umd.min.js", "content.js"],
+      "matches": ["https://m.istqbonline.vn/*"]
+    }
+  ],
+  "host_permissions": ["https://m.istqbonline.vn/*"]
+}
